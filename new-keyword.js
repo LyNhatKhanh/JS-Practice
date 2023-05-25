@@ -25,7 +25,7 @@ let tom = {
   eat: function (mouse) {
     this.stomach.push(mouse);
     this.stomachWeight += mouse.weight;
-    return this; // vi dong` nay nen goi nhieu lan duoc (chi 'this')
+    return this;                                  // vi dong` nay nen goi nhieu lan duoc (chi 'this')
   },
 };
 
