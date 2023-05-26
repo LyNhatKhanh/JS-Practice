@@ -25,7 +25,7 @@ listStudent = [];
 // Khi đã có file thì đọc file ra
 
 readFile = fs.readFileSync(
-  "D:/Study/HTML5/Coursera_Lession/jsPractice/JSON-practice/file-save.txt",
+  "JS-Practice/4-JSON-practice/file-save.txt",
   { encoding: "utf8" }
 );
 listStudent = JSON.parse(readFile);
@@ -76,6 +76,6 @@ do {
 let text = JSON.stringify(listStudent);
 // console.log(text);
 let save = fs.writeFileSync(
-  "D:/Study/HTML5/Coursera_Lession/jsPractice/JSON-practice/file-save.txt",
+  "JS-Practice/4-JSON-practice/file-save.txt",
   text
 );
