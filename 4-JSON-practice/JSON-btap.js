@@ -68,7 +68,7 @@ console.log("2. Show all students");
 console.log("3. Save & Exit");
 let choice;
 do {
-  choice = readlineSync.question("Lua chon cua ban la: ");
+  choice = readlineSync.question("Which choice: ");
   switch (choice) {
     case "1":
       console.log("---------- Ok ----------");
@@ -85,7 +85,7 @@ do {
     default:
       if (choice == 1 || choice == 2 || choice == 3) continue;
       else {
-        console.log("Ban da nhap sai");
+        console.log("Wrong type of select!");
       }
   }
 } while (choice != 3);
