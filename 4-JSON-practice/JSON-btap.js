@@ -30,39 +30,56 @@ readFile = fs.readFileSync(
 );
 listStudent = JSON.parse(readFile);
 
-console.log("Ban co muon them hoc sinh moi khong?");
-console.log("1. Co");
-console.log("2. Khong. Hay hien danh sach hoc sinh");
-console.log("3. Thoat");
+function showStudent() {
+  console.log('========================');
+  console.log('|| Danh sach hoc sinh ||');
+  console.log('========================');
+  for (let key in listStudent) {
+    console.log('     Hoc sinh thu ' + key);
+    console.log('Ten: ' + listStudent[key].name);
+    console.log('Tuoi: ' + listStudent[key].age);
+    console.log('Gioi tinh: ' + listStudent[key].gender);
+    console.log('========================')
+  }
+}
+
+function createStudent() {
+  nameStudent = readlineSync.question("Name: ");
+  ageStudent = readlineSync.questionInt("Age: ");
+  genderStudent = readlineSync.question("Gender: ");
+  let newStudent = new Student(nameStudent, ageStudent, genderStudent);
+  listStudent.push(newStudent);
+  console.log('Loading...');
+  console.log('Success!');
+}
+
+function Save() {
+  let text = JSON.stringify(listStudent);
+  // console.log(text);
+  let save = fs.writeFileSync(
+    "JS-Practice/4-JSON-practice/file-save.txt",
+    text
+  );
+}
+
+console.log("What do you want to do?");
+console.log("1. Create a new student");
+console.log("2. Show all students");
+console.log("3. Save & Exit");
 let choice;
 do {
   choice = readlineSync.question("Lua chon cua ban la: ");
   switch (choice) {
     case "1":
-      nameStudent = readlineSync.question("Name: ");
-      ageStudent = readlineSync.questionInt("Age: ");
-      genderStudent = readlineSync.question("Gender: ");
-      let newStudent = new Student(nameStudent, ageStudent, genderStudent);
-      listStudent.push(newStudent);
+      console.log("---------- Ok ----------");
+      createStudent();
       break;
     case "2":
-      console.log("Ok");
-      console.log("Danh sach hoc sinh");
-      for (let key in listStudent) {
-        console.log('Hoc sinh thu '+ key);
-        console.log('Ten: ' + listStudent[key].name);
-        console.log('Tuoi: ' + listStudent[key].age);
-        console.log('Gioi tinh: ' + listStudent[key].gender);
-        console.log('=================')
-      }
-      //   for (let student of listStudent) {
-      //     // console.log(student);
-      //     console.log('Ten: '+ student.name);
-      //     console.log('Tuoi: '+ student.age);
-      //     console.log('Gioi tinh: '+ student.gender);
-      //   }
+      console.log("---------- Ok ----------");
+      showStudent();
       break;
     case "3":
+      Save();
       console.log("Bye bye");
       break;
     default:
@@ -72,10 +89,3 @@ do {
       }
   }
 } while (choice != 3);
-
-let text = JSON.stringify(listStudent);
-// console.log(text);
-let save = fs.writeFileSync(
-  "JS-Practice/4-JSON-practice/file-save.txt",
-  text
-);
