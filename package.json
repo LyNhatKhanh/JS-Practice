@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "co": "^4.6.0",
     "promise-fs": "^2.1.1",
     "readline-sync": "^1.4.10"
   },
