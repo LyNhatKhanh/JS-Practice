@@ -15,7 +15,7 @@ function readFilePromise(path) {
 
 }
 
-// Dùng để gọi các method của async connect => phải khai báo 'async' trước function
+// Dùng để gọi các method của async await => phải khai báo 'async' trước function
 async function run() {
     var file1 = await readFilePromise('./6-Sync-Async/file1.txt');
     var file2 = await readFilePromise('./6-Sync-Async/file2.txt');
